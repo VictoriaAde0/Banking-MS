@@ -8,8 +8,8 @@ public class Transaction {
     public Transaction() {
     }
 
-//        public Transaction(String id, String date, String amount, String transactionType, String description) {
-//        }
+     public Transaction(String id, String date, String amount, String transactionType, String description) {
+    }
 
     public int getId() {
 

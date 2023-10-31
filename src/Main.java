@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        BankingSystem  bankingSystem = new BankingSystem();
+        BankingSystem bankingSystem = new BankingSystem();
 
         while (true) {
             System.out.println("Banking Account Management System");
@@ -26,7 +26,7 @@ public class Main {
             switch (option) {
 
                 case 1:
-                    VersatileAccount acc = new VersatileAccount();
+                    Account acc = new Account();
                     bankingSystem.createAccount(acc);
 
                     System.out.println("Please enter account number \n");
@@ -48,57 +48,68 @@ public class Main {
                     break;
 
                 case 2:
-                    Transaction account = new Transaction();
-                    bankingSystem.addTransaction(account, new Transaction);
+
+                    System.out.println("Enter Account Number: ");
+                    int accountToUpdate = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Enter Amount to Update: ");
+                    double amountToUpdate = scanner.nextDouble();
+                    scanner.nextLine();
+                    bankingSystem.updateBalance(accountToUpdate,amountToUpdate);
+                    break;
+
+                case 3:
+                    Transaction transaction = new Transaction();
 
 
                     System.out.println("Please enter id number \n");
                     int id = scanner.nextInt();
-                    account.setId(id);
+                    transaction.setId(id);
 
                     System.out.println("Please enter date \n");
                     int date = scanner.nextInt();
-                    account.setDate(date);
+                    transaction.setDate(date);
 
                     System.out.println("Please enter the amount \n");
                     int amount = scanner.nextInt();
-                    account.setDate(amount);
+                    transaction.setDate(amount);
 
                     System.out.println("Please enter the Transaction Type \n");
                     String transactionType = scanner.nextLine();
-                    account.setTransactionType(transactionType);
+                    transaction.setTransactionType(transactionType);
 
                     System.out.println("Please enter the description \n");
                     String description = scanner.nextLine();
-                    account.setDescription(description);
+                    transaction.setDescription(description);
 
 
                     break;
-
-                case 3:
-                    Customer account2 = new Customer();
-
-                    System.out.println("Please enter your name \n");
-                    String name = scanner.nextLine();
-                    account2.setName(name);
-
-                    System.out.println("Please enter your Contact Information \n");
-                    String contactInformation = scanner.nextLine();
-                    account2.setContactInformation(contactInformation);
-
-
-                    System.out.println("Please enter your Identification \n");
-                    int customerIdentification = scanner.nextInt();
-                    account2.setCustomerIdentification(customerIdentification);
-
-
-                    break;
-
 
                 case 4:
+                    System.out.println("Enter Account Number: ");
+                    int accountNumberForHistory = scanner.nextInt();
+                    scanner.nextLine();
+
+
+                    break;
+
+                case 5:
+                    bankingSystem.listAllAccount();
+                    break;
+
+                case 6:
+                    System.out.println("Thank you for banking with us");
+
+                case 7:
+                    System.out.println("You are now leaving");
+                    System.exit(0);
+                default:
+                    System.out.println("Invalid, Please re-enter");
 
 
             }
         }
 
 
+    }
+}

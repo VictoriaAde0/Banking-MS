@@ -1,13 +1,13 @@
-public class VersatileAccount {
+public class Account {
     private int accountNumber;
     private String customerName;
     private double balance;
     private String accountType;
 
-    public VersatileAccount(){
+    public Account(){
     }
 
-    public VersatileAccount(int accountNumber, String customerName,double balance,String accountType){
+    public Account(int accountNumber, String customerName,double balance,String accountType){
         this.accountNumber = accountNumber;
         this.customerName = customerName;
         this.balance = balance;
